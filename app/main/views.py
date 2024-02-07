@@ -1,9 +1,12 @@
 from django.shortcuts import render
-
+from .models import *
 # Create your views here.
 
 def Home(request):
-    return render(request, 'index.html')
+    context = {
+        'carousel' : HeaderText.objects.all()
+    }
+    return render(request, 'index.html', context)
 
 def About(request):
     return render(request, 'about.html')
